@@ -1,22 +1,19 @@
-// const jsPDF = require('jspdf');
-// const html2canvas = require ('html2canvas');
-
 async function buscarPlanillas() {
+  const searchTemplateUrl = '/api/planillas';
   try {
     const requestOptions = {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     };
-    const response = await fetch('/api/planillas', requestOptions);
+    const response = await fetch(searchTemplateUrl, requestOptions);
     if (response.ok) {
       const planillas = await response.json();
       return planillas;
-    } else {
-      throw new Error('Error al buscar las planillas en la base de datos');
-    }
+    } 
+    throw new Error('Error al buscar las planillas en la base de datos');
+    
   } catch (error) {
     console.error(error);
-    throw new Error('Error al buscar las planillas en la base de datos');
   }
 }
 
@@ -32,15 +29,14 @@ buscarPlanillas()
 const body = document.querySelector('#body');
 
 function contentPDF() {
-  
-  const numeroPlanilla = "";
+  const numeroPlanilla = "2000";
   const fecha = "2022-01-01";
   const departamento = "Departamento de Ejemplo";
   const nombreApellido = "John Doe";
   const catedra = "Cátedra de Ejemplo";
   const cedula = "123456789";
   const tipoDeMovimiento = "Movimiento de Ejemplo";
-  const dedicacionActual = "Dedicación Actual de Ejemplo";
+  const dedicacionActual = "Dedicación Actual de PROGRAMADOR";
   const dedicacionPropuesta = "Dedicación Propuesta de Ejemplo";
   const sueldo = "1000";
   const unidadEjecutora = "Unidad Ejecutora de Ejemplo";
@@ -51,7 +47,7 @@ function contentPDF() {
    `
       <header class="header">
         <div class="logoUCV">
-          <img src="/IMG/Logo_UCV.png" alt="">
+          <img src="../../IMG/Logo_UCV.png" alt="">
         </div>
         <div class="Titulo">
           <h1>
@@ -175,18 +171,20 @@ function contentPDF() {
     `;
 }
 
-contentPDF()
+function takeScreenShot(){
+  html2canvas(document.body).then(canvas => {
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF('p','mm');
+    pdf.addImage(imgData, 'PNG', -45, 0, 300, 290);
+    pdf.save('documento.pdf');
+  });
+}
 
-// function generatePDF() {
-//     contentPDF()
+function generatePDF() {
+    contentPDF()
+    setTimeout(()=>{
+      takeScreenShot();
+    }, 1000);
+}
 
-//     html2canvas(document.querySelector('#body')).then(canvas => {
-//       var imgData = canvas.toDataURL('image/png');
-//       var doc = new jsPDF('p','mm');
-
-//       doc.addImage(imgData, 'PNG', 10, 10);
-//       doc.save('salida.pdf');
-//     });
-// }
-
-// generatePDF()
+generatePDF()
