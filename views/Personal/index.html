@@ -100,14 +100,14 @@
         <div class="sm:ml-2 rounded-md h-screen">
 
             <div class="text text-2xl font-semibold py-5 px-16 flex text-center justify-center uppercase">
-                Personal de la EIM
+                Personal EIM
             </div>
     
             <div class="flex  mx-auto text-center justify-center mt-10">
     
                 <div class="flex flex-col text-center justify-start pb-9">
                     
-                    <div class=" mr-2 text-center flex justify-start my-auto">
+                    <div class=" mr-2 text-center flex justify-center md:justify-start my-auto">
                         <i class='bx bx-filter-alt my-auto text-2xl font-semibold text-indigo-950'></i>
                         <p class="flex justify-center text-center my-auto font-medium">
                             Filtrar CI:
@@ -251,7 +251,7 @@
                 <h2 class="text-base">Debe llenar el campo cédula</h2>
             </div>
     
-            <div id="listadoPersonal" class="flex flex-row justify-between text-center bg-indigo-950 h-20 rounded-md mx-auto mt-5 xl:w-11/12">
+            <div id="listadoPersonal" class="flex flex-row justify-between text-center bg-indigo-950 h-20 rounded-md mx-auto mt-5 px-2 sm:px-0 xl:w-11/12">
 
                 <div class="hidden sm:flex flex-col justify-center text-center mx-.5 px-.5 sm:px-0 sm:mx-2 md:mx-4 md:ml-6 md:pl-8">
                     <h2 class="uppercase text-xs md:text-sm lg:text-base text-white">Escuela</h2>
@@ -262,16 +262,16 @@
                     <h2 class="hidden sm:flex uppercase text-[0.68rem] sm:text-xs md:text-sm lg:text-base text-white">Nombre y Apellido</h2>
                     <p></p>
                 </div>
-                <div class="flex flex-col my-auto justify-center text-center mx-.5 px-.5 md:pr-10">
+                <div class="flex flex-col my-auto justify-center text-center ml-9 sm:ml-0 sm:mx-.5 sm:px-.5 md:pr-10">
                     <h2 class="flex sm:hidden uppercase text-[0.68rem] sm:text-xs md:text-sm lg:text-base text-white">CI</h2>
                     <h2 class="hidden sm:flex uppercase text-[0.68rem] sm:text-xs md:text-sm lg:text-base text-white">Cédula</h2>
                     <p></p>
                 </div>
                 <div class="flex flex-col my-auto justify-center text-center mx-.5 px-.5 sm:px-0 sm:mx-2 md:mx-4">
-                    <h2 class="uppercase text-[0.68rem] sm:text-xs md:text-sm lg:text-base text-white">Departamento</h2>
+                    <h2 class="hidden sm:flex uppercase text-[0.68rem] sm:text-xs md:text-sm lg:text-base text-white">Departamento</h2>
                     <p></p>
                 </div>
-                <div class="flex flex-col my-auto justify-center text-center mx-.5 px-.5 sm:px-0 sm:mx-2 ">
+                <div class="flex flex-col my-auto justify-center text-center mr-4 sm:mr-0 mx-.5 px-.5 sm:px-0 sm:mx-2 ">
                     <h2 class="uppercase text-[0.68rem] sm:text-xs md:text-sm lg:text-base text-white">Idac</h2>
                     <p></p>
                 </div>
@@ -282,6 +282,9 @@
             </div>
 
             <div id="containPersonal" class="lg:w-full mx-auto flex flex-col justify-between lg:max-w-screen-xl h-screen overflow-y-auto">
+                <div id="containPersonal2">
+
+                </div>
             </div>
             
 
