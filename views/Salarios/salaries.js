@@ -1,0 +1,1 @@
+import { SALARIES } from "./db";

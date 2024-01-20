@@ -48,5 +48,20 @@ planillasRouter.get('/', async (request, response) => {
   }
 });
 
+planillasRouter.get('/:id', async (request, response, next) => {
+  const id = request.params.id;
+  try {
+    const planillasID = await planillasID.findById(id);
+    if (planillasID) {
+      response.json(planillasID);
+    } else {
+      response.status(404).json({ error: 'No se encontró la planilla con el ID especificado' });
+    }
+  } catch (error) {
+    console.error(error);
+    response.status(500).json({ error: 'Error al obtener la planilla' });
+  }
+});
+
 
 module.exports = planillasRouter;
