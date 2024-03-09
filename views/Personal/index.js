@@ -149,7 +149,6 @@ function ocultarMsjError() {
 }
 
 // Enviar registro del personal a la DB//
-
 formAgregarPersona.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -218,75 +217,66 @@ function generarHTML(personal) {
   const containPersonal2 = document.querySelector("#containPersonal2");
 
   personal.forEach((dato) => {
-    const div = document.createElement("div");
-    div.id = "listadoPersonalOrden";
-    div.className =
-      "grid grid-cols-4 sm:grid-cols-6 justify-between min-w-full h-24 md:h-32 sm:w-auto mx-auto my-1.5 bg-indigo-300 rounded-md border border-blue-950/60 transition-all duration-[1500]";
+    const tr = document.createElement("tr");
+    tr.id = "listadoPersonalOrden";
+    tr.className =
+      "flex justify-around items-center text-ccenter h-auto my-1 border-1.5 border-indigo-950 rounded-md bg-indigo-300 transition-all duration-[1500]";
 
     /////////////// ESCUELA /////////////////
-    const divEscuela = document.createElement("div");
+    const divEscuela = document.createElement("th");
     divEscuela.id = "list_escuela";
-    divEscuela.className =
-      "hidden sm:block sm:col-span-1 justify-around text-center my-auto mx-1 sm:mx-3 md:mx-5 lg:mx-12 xl:mx-14";
+    divEscuela.className = "flex align-center md:ml-5";
     const h2Escuela = document.createElement("h2");
-    h2Escuela.className =
-      "text-xs md:text-sm lg:text-base font-semibold uppercase";
+    h2Escuela.className = " text-[0.50rem] md:text-xs lg:text-md font-semibold w-10";
     h2Escuela.textContent = "EIM";
     divEscuela.appendChild(h2Escuela);
 
     /////////////// NOMBRE /////////////////
     const h2Nombre = document.createElement("h2");
+    h2Nombre.className = "flex align-center justify-end mx-auto text-[0.50rem] md:text-xs lg:text-md font-semibold uppercase w-40";
     h2Nombre.textContent = dato.nameFull;
     //console.log(dato.nameFull);
-    const divNombre = document.createElement("div");
+    const divNombre = document.createElement("th");
     divNombre.id = "list_nombre";
-    divNombre.className =
-      "col-span-1 md:max-w-md text-sm lg:text-base justify-center my-auto px-2 sm:px-0 sm:mx-3 md:mx-5 lg:mx-12 xl:mx-14";
+    divNombre.className = "flex align-center md:ml-12";
     divNombre.appendChild(h2Nombre);
 
     /////////////// CEDULA /////////////////
-    const divCedula = document.createElement("div");
+    const divCedula = document.createElement("th");
     divCedula.id = "list_cedula";
-    divCedula.className =
-      "col-span-1 text-center my-auto ml-4 lg:ml-20 sm:mx-3 md:mx-5 lg:mx-12 xl:mx-14";
+    divCedula.className = "flex align-center md:mr-3";
     const h2Cedula = document.createElement("h2");
-    h2Cedula.className =
-      "text-xs md:text-sm text-sm lg:text-base font-semibold uppercase";
+    h2Cedula.className = "flex align-center justify-end text-[0.50rem] md:text-xs lg:text-md font-semibold uppercase w-24";
     h2Cedula.textContent = dato.cedula;
     divCedula.appendChild(h2Cedula);
     //console.log(dato.cedula);
 
     /////////////// DEPARTAMENTO /////////////////
-    const divDepartamento = document.createElement("div");
+    const divDepartamento = document.createElement("th");
     divDepartamento.id = "list_departamento";
-    divDepartamento.className =
-      "hidden md:flex col-span-1 justify-start lg:justify-end text-right my-auto mx-1 sm:mx-3 md:mx-5 lg:mx-0 xl:mx-0";
+    divDepartamento.className = "flex align-center justify-center";
     const h2Departamento = document.createElement("h2");
-    h2Departamento.className =
-      "text-xs md:text-sm lg:text-base font-semibold uppercase";
+    h2Departamento.className = "text-[0.50rem] md:text-xs lg:text-md font-semibold uppercase w-40";
     h2Departamento.textContent = dato.departamento;
     divDepartamento.appendChild(h2Departamento);
     //console.log(dato.departamento)
 
     /////////////// IDAC /////////////////
-    const divIdac = document.createElement("div");
+    const divIdac = document.createElement("th");
     divIdac.id = "list_idac";
-    divIdac.className =
-      "col-span-1 justify-center text-center sm:justify-end sm:text-right my-auto sm:mx-3 md:mx-5 lg:mx-0 xl:mx-0";
+    divIdac.className = "flex justify-center md:mr-4";
     const h2Idac = document.createElement("h2");
-    h2Idac.className =
-      "text-xs md:text-sm lg:text-base font-semibold uppercase";
+    h2Idac.className = "flex align-center justify-center text-[0.50rem] md:text-xs lg:text-md font-semibold w-20";
     h2Idac.textContent = dato.Idac;
     divIdac.appendChild(h2Idac);
 
     ////////Botones de acción////////
-    const divBotones = document.createElement("div");
-    divBotones.className =
-      "col-span-1 my-auto md:mx-3 lg:mx-0 flex justify-end lg:mr-2";
-      
+    const divBotones = document.createElement("th");
+    divBotones.className ="flex flex-row my-auto w-20 md:mr-2";
+
     ////////Boton de editar//////////
     const divEditar = document.createElement("div");
-    divEditar.className = "w-6 md:w-8 lg:w-9 mx-2";
+    divEditar.className = "w-6 my-4 mx-1 text-center";
     divEditar.title = "Editar";
     const buttonEditar = document.createElement("button");
     buttonEditar.id = "btnEditarPersonal";
@@ -295,14 +285,11 @@ function generarHTML(personal) {
       " p-1 w-full bg-blue-700 text-white rounded-lg active:rounded-lg hover:bg-blue-950 hover:rounded-md mx-auto";
     const iEditar = document.createElement("i");
     iEditar.className =
-      "bx bx-edit text-sm md:text-base lg:text-xl text-center";
-      
-    buttonEditar.appendChild(iEditar);
-    divEditar.appendChild(buttonEditar);
+      "bx bx-edit text-center";
 
     ///////////Boton de eliminar//////////
     const divEliminar = document.createElement("div");
-    divEliminar.className = "w-6 md:w-8 lg:w-9 mx-2";
+    divEliminar.className = "w-6 my-4 mx-1 text-center";
     divEliminar.title = "Eliminar";
     const buttonEliminar = document.createElement("button");
     buttonEliminar.id = "btnEliminarPersonal";
@@ -311,21 +298,25 @@ function generarHTML(personal) {
       "p-1 w-full bg-red-600 text-white rounded-lg active:rounded-lg hover:bg-red-800 hover:rounded-md mx-auto";
     const iEliminar = document.createElement("i");
     iEliminar.className =
-      "bx bx-trash text-sm md:text-base lg:text-xl text-center";
+      "bx bx-trash text-center";
+
+    buttonEditar.appendChild(iEditar);
+    divEditar.appendChild(buttonEditar);
+
     buttonEliminar.appendChild(iEliminar);
     divEliminar.appendChild(buttonEliminar);
 
     divBotones.appendChild(divEditar);
     divBotones.appendChild(divEliminar);
 
-    div.appendChild(divEscuela);
-    div.appendChild(divNombre);
-    div.appendChild(divCedula);
-    div.appendChild(divDepartamento);
-    div.appendChild(divIdac);
-    div.appendChild(divBotones);
+    tr.appendChild(divEscuela);
+    tr.appendChild(divNombre);
+    tr.appendChild(divCedula);
+    tr.appendChild(divDepartamento);
+    tr.appendChild(divIdac);
+    tr.appendChild(divBotones);
 
-    containPersonal2.appendChild(div);
+    containPersonal2.appendChild(tr);
   });
 }
 
