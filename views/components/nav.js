@@ -2,12 +2,12 @@ const navegacion = document.querySelector('#navegacion');
 const navScroll = document.querySelector('#navContent');
 
 
-const crearNavHome = ()=>{
+const crearNavHome = () => {
     navegacion.innerHTML = `
-    <div class="LogoI hidden lg:flex font-bold flex-col pl-3 m-2">
+    <div class="LogoI hidden lg:flex font-bold flex-col p-2 my-auto">
                     <a href='/'>
-                        <h2 class=" text-white text-3xl text-center">GMP</h2>
-                        <p class=" text-white text-xl text-center border-t border-red-600">Idiomas Modernos</p>    
+                        <h2 class=" text-white text-2xl tracking-widest w-auto text-center">GMP</h2>
+                        <p class=" text-white text-2xl tracking-wider text-center border-t border-red-600">FACULTAD DE HyE</p>    
                     </a>
                 </div>
                 <div class="my-auto lg:m-auto">
@@ -83,7 +83,7 @@ const crearNavHome = ()=>{
     `
 }
 
-const crearNavRegistro = ()=>{
+const crearNavRegistro = () => {
     navegacion.innerHTML = `
     <div class="LogoI hidden lg:flex font-bold flex-col pl-3 m-2">
                     <a href='/'>
@@ -156,7 +156,7 @@ const crearNavRegistro = ()=>{
     `
 }
 
-const crearNavLogin = ()=>{
+const crearNavLogin = () => {
     navegacion.innerHTML = `
     <div class="LogoI hidden lg:flex font-bold flex-col pl-3 m-2">
                     <a href='/'>
@@ -216,15 +216,15 @@ const crearNavLogin = ()=>{
     `
 }
 
-if(window.location.pathname === '/'){
-    
+if (window.location.pathname === '/') {
+
     //crear la barra de navegacion para la pagina de home
     crearNavHome();
-}else if(window.location.pathname === '/registro/'){
+} else if (window.location.pathname === '/registro/') {
 
     //crear la barra de navegacion para la pagina de registro
     crearNavRegistro();
-}else if(window.location.pathname === '/login/'){
+} else if (window.location.pathname === '/login/') {
 
     //crear la barra de navegacion para la pagina de login
     crearNavLogin();
@@ -233,17 +233,17 @@ if(window.location.pathname === '/'){
 const navBtn = navegacion.children[2];
 //console.log(navegacion.children[2]);
 
-navBtn.addEventListener('click', e=>{
+navBtn.addEventListener('click', e => {
     //console.log(navegacion.children[2].children[1])
     const menuMobile = navegacion.children[2].children[1];
 
-    if(!navBtn.classList.contains('active')){
+    if (!navBtn.classList.contains('active')) {
 
         //menu movil cerrado y vamos a mostrarlo
         navBtn.classList.add('active');
         menuMobile.classList.remove('hidden');
         menuMobile.classList.add('flex')
-    }else{
+    } else {
         navBtn.classList.remove('active');
         menuMobile.classList.add('hidden');
         menuMobile.classList.remove('flex');
